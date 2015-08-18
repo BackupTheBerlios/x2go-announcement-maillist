@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-Announcement] X2Go Thin Client Environment (1.1.0.1) released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Thin%20Client%20Environment%20%281.1.0.1%29%20released&In-Reply-To=%3C20131122230640.Horde.tyO7cCrEGkaLh3nDfrWZtA3%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000161.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-Announcement] X2Go Thin Client Environment (1.1.0.1) released</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Thin%20Client%20Environment%20%281.1.0.1%29%20released&In-Reply-To=%3C20131122230640.Horde.tyO7cCrEGkaLh3nDfrWZtA3%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-Announcement] X2Go Thin Client Environment (1.1.0.1) released">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Nov 23 00:06:40 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000161.html">[X2Go-Announcement] X2Go Server (4.0.1.8) released
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#162">[ date ]</a>
+              <a href="thread.html#162">[ thread ]</a>
+              <a href="subject.html#162">[ subject ]</a>
+              <a href="author.html#162">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+the X2Go project is proud to announce a new release of the X2Go
+component ,,x2gothinclient''.
+
+This release contains many bug fixes for the 1.1.0.0 release.
+Also several new features have been added, thanks to the Rohloff AG
+for supporting this development step.
+
+We highly recommend re-creating your X2Go TCE chroot image with the
+x2gothinclient_create command.
+
+The X2Go TCE builds against Debian squeeze / wheezy. Also with Debian
+jessie I have seen good results, but as Debian jessie (aka testing)
+undergoes permanent changes, trying to build the X2Go TCE
+based on Debian jessie will be an endeavour at your own risk.
+
+Those who will test the X2Go TCE, please please please give feedback!!!
+
+
+X2Go Component: x2gothinclient
+Version: 1.1.0.1
+Status: RELEASE
+Date: Fri, 22 Nov 2013 23:51:33 +0100
+Fixes these bug report(s): 300 301
+Changes:
+  x2gothinclient (1.1.0.1) RELEASED; urgency=low
+  .
+    [ Mike Gabriel ]
+    * New upstream version (1.1.0.1):
+      - Switch to VT-7 on TC shutdown.
+      - Syntax fix in x2gousbmount script.
+      - Make ~x2gothinclient rw-able on TCE machines. Thanks to Peter
+        Schneider for pointing at this.
+      - Remove chroot bootstrap cruft when finished with creating the
+        TCE chroot.
+      - Deactivate serial line terminals on X2Go thinclients.
+      - Install TCE dependencies via meta-package x2gothinclient-chroot.
+      - Move init scripts from debian/ folder into upstream folders.
+      - Provide x2gothinclient-chroot.init script that tweaks the chroot
+        during thin client startup.
+      - Patch /etc/init.d/checkroot-bootclean.sh during TCE creation to
+        avoid failures when clean tmp files on the read-only NFS root-fs.
+      - Work around Debian bug #729373 during TCE creation. Replace alsa-utils
+        init script and ALSA's utils.sh (for Debian wheezy+jessie chroots).
+      - Refrain from using &quot;~&lt;user&gt;&quot; when launching X2Go Client as it cannot
+        handle it, yet. Use &quot;~&quot; instead (handable by X2Go Client &gt;= 4.0.1.2).
+      - Tweak the /etc/os-release more comprehensively.
+      - Update initramfs at the very end of the TCE creation.
+      - Do not over-mount /run as tmpfs. This is already done by the Debian
+        boot process.
+      - Monitor mounted USB devices via ~x2gothinclient/mounts (and not via
+        deprecated location /var/run).
+      - Add TC_NONINTERACTIVE (commented out) to x2gothinclient_settings config
+        file.
+      - Add syslog support to x2gousbmount.
+      - Install radeon and i915 kms/drm module into initrd image for Debian
+        (&gt;= 7).
+    * debian/control:
+      + New bin:package x2gothinclient-chroot.
+      + Make sure x2gothinclient-chroot pulls in editing tools like
+        mc, vim, less via Recommends: field.
+      + Depend on x2goclient (&gt;= 4.0.1.2-0~).
+      + Suggest some helpful firmware packages (also from non-free) in  
+bin:package
+        x2gothinclient-chroot.
+  .
+    [ Arnold Krille ]
+    * New upstream version (1.1.0.1):
+      - Extend x2gothinclient_shell to run anything given as arguments and
+        fall back to $TC_SHELL when nothing is given. (Fixes: #301).
+      - Allow non-interactive execution of x2gothinclient_create. (Fixes:
+        #300).
+
+
+Regards,
+Mike Gabriel
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131122/58237a81/attachment.pgp">https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131122/58237a81/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000161.html">[X2Go-Announcement] X2Go Server (4.0.1.8) released
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#162">[ date ]</a>
+              <a href="thread.html#162">[ thread ]</a>
+              <a href="subject.html#162">[ subject ]</a>
+              <a href="author.html#162">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>

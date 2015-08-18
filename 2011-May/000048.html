@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-announcement] - Python X2go Client (command line client)	annotated tag, 0.1.3.1, created. 0.1.3.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2go-announcement%5D%20-%20Python%20X2go%20Client%20%28command%20line%20client%29%0A%09annotated%20tag%2C%200.1.3.1%2C%20created.%200.1.3.1&In-Reply-To=%3C20110517101900.D3F175DB20%40ymir.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-announcement] - Python X2go Client (command line client)	annotated tag, 0.1.3.1, created. 0.1.3.1</H1>
+    <B>X2go dev team</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2go-announcement%5D%20-%20Python%20X2go%20Client%20%28command%20line%20client%29%0A%09annotated%20tag%2C%200.1.3.1%2C%20created.%200.1.3.1&In-Reply-To=%3C20110517101900.D3F175DB20%40ymir.das-netzwerkteam.de%3E"
+       TITLE="[X2go-announcement] - Python X2go Client (command line client)	annotated tag, 0.1.3.1, created. 0.1.3.1">git-admin at x2go.org
+       </A><BR>
+    <I>Tue May 17 12:19:00 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[X2go-announcement] - Python X2go Client API annotated tag, 0.0.44.0,	created. 0.0.44.0
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[X2go-announcement] - Python X2go Client (command line client)	annotated tag, 0.1.3.2, created. 0.1.3.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This is an automated email from the git hooks/post-receive script. It was
+generated because a ref change was pushed to the repository containing
+the project &quot;Python X2go Client (command line client)&quot;.
+
+The annotated tag, 0.1.3.1 has been created
+        at  2e0f1ae34294f8f755e89d48107c29057907e901 (tag)
+   tagging  1c38b7f4abd740dfa262f17a5c878901f7645e0c (commit)
+ tagged by  Mike Gabriel
+        on  Tue May 17 12:18:27 2011 +0200
+
+- Log -----------------------------------------------------------------
+Upstream version 0.1.3.1
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iQEcBAABAgAGBQJN0ktzAAoJEIlP3EWN3QKA6PwIALI55ms2pxmnIh/QFx4bvTAz
+4fCem/P5zqBqlzJxxrzQSk4T6SrJoSYPGMUASZeX3Y6jxmlRmxvYgN39wI5MXmed
+vaDpH2x/9ApUi78NueS27xWTy8rWnA/8huTutRoKDy4R0HCh9NqU1kFD857oUcF7
+zeaj7KO/drRUt9CI588/yNjDkAbEmKbCKKN3SJoZHSlkaX2/ZNOij9EUG60KGjXd
+wojBDDPd40RIfdNH/U3u/V06e7XkGzKgDw8KZCxAh+TpCITCrkkXkIZiQAFY7JwW
+iIenc6BbxPe6HmMab1O5197D5yy8+EeOff78/gg1TTOhjL0A0KtkPIM0VYmJVos=
+=IO7c
+-----END PGP SIGNATURE-----
+
+Mike Gabriel (32):
+      diverted symlink for development python-x2go code
+      fixes the author and his email address
+      updates control file (prep for building on Launchpad)
+      updates control file description
+      changeover to four digit version pattern
+      switches to native source format
+      updates for python build env
+      fixes --list-sessions option
+      uses touch_file function from python-x2go API
+      change loglevel option from arg to kwarg parameter
+      typo fix, adds debug code
+      take user name from session profile if --session-profile is used
+      removal of debug code
+      fixes UTF-8 error, session profile usage + password auth now fixed
+      raising a runtime error, if session profile name does not exist
+      only raising error if session_profile arg was specified
+      work-around for Python bug <A HREF="http://bugs.python.org/issue11236">http://bugs.python.org/issue11236</A>
+      getting rid of empty lines
+      exchange -r option by -p
+      if SSH privkey is not valid, use interactive auth
+      fail interactive authentication after 3 attempts
+      explicit logon failure after 3 attempts
+      fixed exitcode
+      fixes list sessions output, depends on newest python-x2go code
+      adds setproctitle support
+      interpuctation beautification
+      reintroducing the --password option secured by setproctitle
+      moving setproctitle stanze further up, fixed typo
+      version increment, debian changelog entry
+      removed old build script
+      new line at end of file
+      man page update
+
+mike (35):
+      * re-importing projects
+      * added folder for pyhoca-cli based GUI (name may still change)
+      * an example skeleton (not functional yet) for a common file hierarchy for
+      * completely egg'ified / class'ified PyHocaCLI
+      * remove ppring import
+      * pyhoca-cli is currently broken...
+      * fixed pyhoca-cli
+      * re-added pyhoca-cli symlinks to Python X2go working copy
+      * using double underscore method names for core methods in X2goClient
+      * intermediate check-in on the way of proper session profile handling
+      * added --session-profile option (run a session profile as configured in ~/.x2goclient/sessions)
+      * added --list-profiles option to PyHoca CLI
+      * adapted pyhoca-cli to changes in X2goClient API (strict separation of session
+      * PyHoca-CLI adaptations to changes in Python X2go API
+      * improved error handling for crash X2go session (integration in to PyHoca-CLI)
+      * fixing name tag whe logging (to distinguish X2goClient instance logging
+      * PyHocaCLI class and its X2goClient parent class now have separate loggers
+      * wrong copyright header
+      * pyhoca-cli build script
+      * added support for retrieving current local user from x2go module
+      * move _touch_file further up in the code
+      * creating .ssh directory if not present
+      * added SSH rootdir variable to Python X2go
+      * fix for .ssh path creation
+      * disabled password on the command line (as it can be a security issue, the command line
+      * added known_host kwarg to X2goClient__register_session
+      * indentation fix
+      * prepared for intermediate release
+      * forcing use_cache to False when constructing X2goClient instance
+      * tagged pyhoca-cli 0.1.2
+      * modified version string
+      Python X2go
+      * fixing handling of add_to_known_hosts and known_hosts parameters
+      * built Debian/Ubuntu Packages
+      * release:
+
+-----------------------------------------------------------------------
+
+
+hooks/post-receive
+-- 
+Python X2go Client (command line client)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[X2go-announcement] - Python X2go Client API annotated tag, 0.0.44.0,	created. 0.0.44.0
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[X2go-announcement] - Python X2go Client (command line client)	annotated tag, 0.1.3.2, created. 0.1.3.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>

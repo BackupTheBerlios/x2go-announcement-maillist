@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-Announcement] X2Go Server (4.0.1.7) released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Server%20%284.0.1.7%29%20released&In-Reply-To=%3C20131122210945.Horde.vpk2ijpU0Hjqgjd4TSvf3Q6%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000159.html">
+   <LINK REL="Next"  HREF="000161.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-Announcement] X2Go Server (4.0.1.7) released</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Server%20%284.0.1.7%29%20released&In-Reply-To=%3C20131122210945.Horde.vpk2ijpU0Hjqgjd4TSvf3Q6%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-Announcement] X2Go Server (4.0.1.7) released">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Nov 22 22:09:45 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000159.html">[X2Go-Announcement] X2Go Server (4.0.0.6 / Baikal LTS) released
+</A></li>
+        <LI>Next message: <A HREF="000161.html">[X2Go-Announcement] X2Go Server (4.0.1.8) released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+the X2Go project is proud to announce a new release of the X2Go
+component ,,x2goserver''.
+
+New gains of this version of ,,x2goserver'' are:
+
+   o Allow sudoed commands under KDE.
+   o DB fixes around session suspension / termination.
+   o Published applications: don't show 1x1 px window on some local
+     desktop shells.
+   o Make umask for client-side folder shares configurable in
+     x2goserver.conf.
+   o Avoid using the which command.
+   o Prohibit X2Go usage for the user root when in PostgreSQL mode.
+   o Fix keyboard detection (keyboard type: auto) when resuming
+     sessions.
+
+
+X2Go Component: x2goserver
+Version: 4.0.1.7
+Status: RELEASE
+Date: Fri, 22 Nov 2013 21:58:27 +0100
+Fixes these bug report(s): 276 278 285 305 310 331
+Changes:
+  x2goserver (4.0.1.7) RELEASED; urgency=low
+  .
+    [ Orion Poplawski ]
+    * New upstream version (4.0.1.7):
+      - Install Xsession file as executable, make Xsession.d directory location
+        configurable during build process, do not create unused  
+Xsession.options.
+        (Fixes: #278).
+  .
+    [ Mike Gabriel ]
+    * New upstream version (4.0.1.7):
+      - Fine-tune x2goserver-xsession/Makefile: if /etc/X11 has  
+Xsession.d and/or
+        Xsession.options they get symlinked into /etc/x2go. Otherwise  
+Xsession.d
+        and Xsession.options are created under /etc/x2go as empty dir/file.
+        (Fixes: #278).
+      - Fix automatic keyboard setup (via x2gosetkeyboard) while resuming a
+        session. (Fixes: #285).
+      - Provide sudoers.d/x2goserver file that allows sudoed commands under
+        KDE (by pertaining the env var QT_GRAPHICSSYSTEM. (Fixes: #276).
+      - With PostgreSQL as session db backend, prevent the root user from
+        launching sessions. Also, prevent x2gouser_root from being added as a
+        PostgreSQL user. (Fixes: #310).
+      - Execute DB status changes as late as possible during suspend /  
+terminate.
+      - Start/resume rootless sessions without geometry parameter. Esp. using
+        X2GO_GEOMETRY=fullscreen for rootless sessions lead to an extra 1x1 px
+        session window (nxagentCreateIconWindow in nxagent's Window.c).
+      - Typo fix in x2goruncommand (for MATE session startup).
+    * debian/control:
+      + Update LONG_DESCRIPTIONS.
+      + Raise Standards: to 3.9.4 (no changes needed).
+      + Move xfonts-base to Recommends: field of bin:package x2goserver.
+    * debian/x2goserver.init:
+      + Make init script LSB compliant.
+  .
+    [ Helmer Teles ]
+    * New upstream version (4.0.1.7):
+      - Make umask that is used when mounting client-side folders via SSHFS
+        configurable in x2goserver.conf. (Fixes: #331).
+  .
+    [ J&#252;rgen H&#246;tzel ]
+    * New upstream version (4.0.1.7):
+      - Use bash-builtin 'type' instead of to be avoided 'which'.  
+(Fixes: #305).
+  .
+    [ Oleksandr Shneyder ]
+    * New upstream version (4.0.0.6):
+      - Fix x2goruncommand: &quot;type -P $cmd&quot; can create new lines in EXEC
+        variable if command have the arguments wich have same names as existing
+        commands, for example &quot;rdesktop -k nl&quot; -&gt;  
+&quot;/usr/bin/rdesktop\n/usr/bin/nl&quot;.
+        Now we splitting $cmd and taking only first part.
+
+
+Regards,
+Mike Gabriel
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131122/f109af8b/attachment.pgp">https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131122/f109af8b/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000159.html">[X2Go-Announcement] X2Go Server (4.0.0.6 / Baikal LTS) released
+</A></li>
+	<LI>Next message: <A HREF="000161.html">[X2Go-Announcement] X2Go Server (4.0.1.8) released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#160">[ date ]</a>
+              <a href="thread.html#160">[ thread ]</a>
+              <a href="subject.html#160">[ subject ]</a>
+              <a href="author.html#160">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>

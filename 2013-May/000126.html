@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-Announcement] X2Go Session Broker (0.0.2.1) released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Session%20Broker%20%280.0.2.1%29%20released&In-Reply-To=%3C20130519145753.171528jv2yug6p1t%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000125.html">
+   <LINK REL="Next"  HREF="000127.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-Announcement] X2Go Session Broker (0.0.2.1) released</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Session%20Broker%20%280.0.2.1%29%20released&In-Reply-To=%3C20130519145753.171528jv2yug6p1t%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-Announcement] X2Go Session Broker (0.0.2.1) released">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun May 19 14:57:53 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000125.html">[X2Go-Announcement] X2Go Server (4.0.0.2) released
+</A></li>
+        <LI>Next message: <A HREF="000127.html">[X2Go-Announcement] X2Go Debian Package Archive: provisioning of	jessie packages
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+the X2Go project is proud to announce a new release of the X2Go
+component ,,x2gobroker''.
+
+New gains of this version of ,,x2gobroker'' are:
+
+   o Vulnerability fix. With previous versions it was easily possible for an
+     attacker to execute arbitrary code as uid root(!).
+   o Fix setting X2GOBROKER_SESSIONPROFILES variable via WSGI SetEnv
+   o Populate install stanza in Makefile (for RPM packaging)
+   o Bug closures: #201, #210, #211 (see below)
+
+WARNING::: The above mentioned vulnerability fix demands that you  
+upgrade all your X2Go Session Broker installations to version 0.0.2.1.
+
+
+X2Go Component: x2gobroker
+Version: 0.0.2.1
+Status: RELEASE
+Date: Sun, 19 May 2013 12:41:06 +0200
+Changes:
+  x2gobroker (0.0.2.1) RELEASED; urgency=low
+  .
+    [ Mike Gabriel ]
+    * New upstream version (0.0.2.1):
+      - Remove trailing slashes from ManagementServer URLs.
+      - In Apache2 vhost configuration example, move WSGI environment
+        variable settings into VirtualHost setup.
+      - Remove unused, not-yet-developed broker backends and frontends.
+      - Remove old cruft from x2gobroker.conf.
+      - Security fix for setuid wrapper x2gobroker-agent.c. Hard-code path to
+        x2gobroker-agent.pl during build via defining a macro in the Makefile.
+        Thanks to Richard Weinberger for spotting this!!!
+      - Handle URLs in plain WebUI that have slashes (and subpaths) in the
+        backend name.
+      - In WSGI mode: only populate os.environ with variables matching
+        &#187;X2GOBROKER_*&#171;.
+      - Make X2GOBROKER_SESSIONPROFILES configurable via a SetEnv WSGI
+        parameter in the httpd configuration possible. (Fixes: #210).
+    * Provide init scripts and *.default files outside of /debian folder (as
+      they are also relevant for non-Debian packaging).
+  .
+    [ Jan Engelhardt ]
+    * New upstream version (0.0.2.1):
+      - Populate install target of Makefile. (Fixes: #201).
+      - Install man pages and default files through Makefile, as well. (Fixes:
+        #211).
+
+
+Regards,
+Mike Gabriel
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-announcement/attachments/20130519/f25c70e9/attachment.pgp">https://lists.berlios.de/pipermail/x2go-announcement/attachments/20130519/f25c70e9/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000125.html">[X2Go-Announcement] X2Go Server (4.0.0.2) released
+</A></li>
+	<LI>Next message: <A HREF="000127.html">[X2Go-Announcement] X2Go Debian Package Archive: provisioning of	jessie packages
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-Announcement] X2Go Client (4.0.1.2) released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Client%20%284.0.1.2%29%20released&In-Reply-To=%3C20131217145353.Horde.438kOHgK8ozmNXVCYSBihg1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-Announcement] X2Go Client (4.0.1.2) released</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Client%20%284.0.1.2%29%20released&In-Reply-To=%3C20131217145353.Horde.438kOHgK8ozmNXVCYSBihg1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-Announcement] X2Go Client (4.0.1.2) released">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Dec 17 15:53:53 CET 2013</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+the X2Go project is proud to announce a new release of the X2Go
+component ,,x2goclient''.
+
+New gains of this version of ,,x2goclient'' are:
+
+   o GSSAPI support.
+   o RPM builds directly from X2Go upstream.
+   o Make win32 installation of X2Go Client removable.
+   o Fix pulseaudio cookie file search for newer versions of
+     pulseaudio.
+   o Allow ~ operator in path names
+   o New option --broker-cacertfile, specify custom root-CA for
+     broker https connections.
+   o Broker client: fix storage path for customly allowed SSL certs.
+   o Become more tolerant with white spaces in session profile options.
+   o New cmdline arg --tray-icon. Allow showing the tray icon when
+     in hidden mode.
+   o Notification bubbles for starting / resuming sessions. This feature
+     will probably be extended in the next X2Go Client version (for the
+     sake of those who feel this as a regression for their deployed
+     setups).
+
+
+Also please welcome our new maintainer for the MS Windows builds of  
+X2Go Client: Michael 'Mike' DePaulo.
+
+
+X2Go Component: x2goclient
+Version: 4.0.1.2
+Status: RELEASE
+Date: Tue, 17 Dec 2013 15:21:38 +0100
+Fixes these bug report(s): 139 230 241 311 315 316 328 333
+Changes:
+  x2goclient (4.0.1.2) RELEASED; urgency=low
+  .
+    [ Mike Gabriel ]
+    * New upstream version (4.0.1.2):
+      - Provide Keywords: key in .desktop file.
+      - Add NSIS packaging files for win32 builds to source tree.
+        (Files provided by Oleksandr Shneyder, thanks!!!).
+      - Rename win32 desktop and startmenu icon from &quot;X2goClient&quot; to &quot;X2Go
+        Client&quot;.
+      - Store broker HTTPS certificate exceptions in
+        $HOME/.x2go/ssl/exceptions (before: $HOME/ssl/exceptions).
+        (Fixes these bug report(s): #328).
+      - Perform sanity checks on data that comes in from X2Go Servers.
+        Prohibit the execution of arbitrary code via the ~/.bashrc file.
+        (Fixes these bug report(s): #333).
+      - Add option --broker-cacertfile. Allow usage of non-system-wide
+        installed (self-signed) SSL certificate chains for https (SSL)
+        session broker connections. (Fixes these bug report(s): #311).
+      - Update man page for new --tray-icon cmdline option.
+      - Update man page for --broker-url. Explain the syntax of &lt;URL&gt;.
+      - Properly handle (=expand) the &quot;~&quot; character in key filenames.  
+(Brought to
+        attention by Eldamir on IRC. Thanks!).
+      - Expand tilde operator for all other file paths handed over to  
+X2Go Client
+        via sessions file or cmdline parameter.
+      - Syntax fix of x2goclient.desktop file.
+      - Test for various file locations of the pulseaudio cookie file.
+      - Allow patching of qmake-qt4 executable path in Makefile.
+      - Make qmake-qt4 and lrelease path in Makefile easily replacable (as
+        RHEL-5 does not have those tools in $PATH).
+      - Make sure that build_client and build_plugin are not build  
+with parallel
+        make.
+      - Make x2goplugin-provider installable via Makefile.
+    * Pull-in packaging changes from Debian.
+    * debian/source/format:
+      + Switch to format 1.0.
+    * x2goclient.spec:
+      + Ship x2goclient.spec (RPM package definitions) in upstream project.
+        (Thanks to the Fedora package maintainers).
+      + Clear (Fedora package) changelog.
+      + Make package build on Fedora/EPEL versions that do not have the
+        qtbrowserplugin package.
+      + For EPEL-5 builds: replace full path to qmake-qt4 and lrelease.
+      + Split up package into bin:packages: x2goclient, x2goplugin,
+        x2goplugin-provider.
+      + Make sure lrelease-qt4 is executed (not just lrelease).
+  .
+    [ Ricardo D&#237;az Mart&#237;n ]
+    * New upstream versino (4.0.1.2):
+      - Strip whitespaces off of user name, host name and other
+        strings when loading / saving session profiles.(Fixes these  
+bug report(s): #315).
+      - New option --tray-icon. Force showing the tray icon, even for
+        hidden sessions. Also allow creation of .desktop files with
+        --tray-icon optionally being enabled. (Fixes these bug  
+report(s): #316).
+      - Update Spanish translation.
+  .
+    [ Oleksandr Shneyder ]
+    * New upstream version (4.0.1.2):
+      - Support for keys &quot;shadowuser&quot; &quot;shadowdisplay&quot; and &quot;shadowmode&quot; in
+        config file. This allows choosing the default display for shadow
+        sessions.
+      - Support for GSSApi(Kerberos 5) authentication. Using ssh/scp commands
+        on Linux and Mac and plink/pscp on Windows.
+      - Support for ChallengeResponseAuthentication (Google Authenticator)
+      - Setting main window focus on mac (Fixes these bug report(s): #139).
+      - Additional check if authentication with GSSApi successfull
+      - c121b7e2d3d83abdc2d7a29637bc3294e38b2ec3 broke checking if remote
+        command produce only stderr and not stdout. It made x2goclient crash
+        if x2gostartagent send LIMIT error. Current commit fixes this issue=..
+      - SshMasterConnection should use current user name if no user name is
+        specified in session settings
+      - GSSApi(Kerberos 5) authentication for sshproxy and sshbroker
+      - fixed GSSApi(Kerberos 5) authentication for sshproxy and sshbroker
+        on windows
+  .
+    [ Heinrich Schuchardt ]
+    * New upstream version (4.0.1.2):
+      - Handle SSH host key changes more elegantly and allow user interaction
+        if such a host key change occurs. (Fixes these bug report(s): #241)=..
+  .
+    [ Michael DePaulo ]
+    * New upstream version (4.0.1.2):
+      - win32: Add uninstall information to Add/Remove Programs.  
+(Fixes these bug report(s): #230).
+
+
+Regards,
+Mike Gabriel
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131217/8e3db476/attachment.pgp">https://lists.berlios.de/pipermail/x2go-announcement/attachments/20131217/8e3db476/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>

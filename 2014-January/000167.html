@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-Announcement] X2Go Server (4.0.0.9 / Baikal LTS) released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-announcement/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Server%20%284.0.0.9%20/%20Baikal%20LTS%29%20released&In-Reply-To=%3C20140106174321.Horde.LI1_3tgl7D2kMhi4J0CvnQ1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000166.html">
+   <LINK REL="Next"  HREF="000168.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-Announcement] X2Go Server (4.0.0.9 / Baikal LTS) released</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-announcement%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-Announcement%5D%20X2Go%20Server%20%284.0.0.9%20/%20Baikal%20LTS%29%20released&In-Reply-To=%3C20140106174321.Horde.LI1_3tgl7D2kMhi4J0CvnQ1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-Announcement] X2Go Server (4.0.0.9 / Baikal LTS) released">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Jan  6 18:43:21 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000166.html">[X2Go-Announcement] NX redistributed (3.5.0.22) released
+</A></li>
+        <LI>Next message: <A HREF="000168.html">[X2Go-Announcement] X2Go Server (4.0.1.11) released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+the X2Go project is proud to announce a new release of the X2Go
+component ,,x2goserver''.
+
+This release of X2Go Server is a hot-fix release. Together with two
+of our customers (Kelyon IT, LinDix.NL) and their technicians' expertise
+we could narrow down X2Go session startup problems in cases where a dot
+&quot;.&quot; occurred in session ID strings.
+
+Those issues could be caused by usernames containing dots or by custom
+commands containing dots.
+
+This version of X2Go Server should fix those issues while still being
+nearly as strict about allowed session ID characters as introduced by
+the previous version of X2Go Server (4.0.1.10 / 4.0.0.8 LTS).
+
+
+X2Go Component: x2goserver
+Version: 4.0.0.9
+Status: RELEASE
+Date: Mon, 06 Jan 2014 18:21:36 +0100
+Changes:
+  x2goserver (4.0.0.9) RELEASED; urgency=low
+  .
+    * New upstream version (4.0.0.9):
+      - Sanitize session name in x2gostartagent, as well. Fixes problems
+        with custom session commands containing characters that get
+        sanitized out.
+      - Allow dots (&quot;.&quot;) in sanitized session names.
+
+
+Regards,
+Mike Gabriel
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-announcement/attachments/20140106/15bf70dc/attachment.pgp">https://lists.berlios.de/pipermail/x2go-announcement/attachments/20140106/15bf70dc/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000166.html">[X2Go-Announcement] NX redistributed (3.5.0.22) released
+</A></li>
+	<LI>Next message: <A HREF="000168.html">[X2Go-Announcement] X2Go Server (4.0.1.11) released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-announcement">More information about the X2Go-Announcement
+mailing list</a><br>
+</body></html>
